@@ -1,0 +1,79 @@
+/* Estrutura principal da página (header, main, footer, grid) */
+
+body {
+    background-color: var(--bg-primary);
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+
+.header {
+    grid-area: header;
+    border-bottom: var(--border-color) solid 0.01rem;
+    box-shadow: 0 2px 4px rgba(255, 242, 231, 0.2);
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Logo no header */
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    font-family: cursive, sans-serif;
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 25rem 2fr;
+    grid-template-areas:
+        "sidebar dashboard"
+        "sidebar transacoes";
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.sidebar{
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cards {
+    grid-area: dashboard;
+}
+
+/* Seções de adição de cards e transações */
+.transacoes {
+    grid-area: transacoes;
+    gap: 2rem;
+    width: 100%;
+}
+
+.footer {
+    grid-area: footer;
+    color: var(--text-secondary);
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Responsividade mobile */
+@media (max-width: 1024px) {
+    .main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "dashboard"
+            "sidebar"
+            "transacoes";
+    }
+}

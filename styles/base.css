@@ -1,0 +1,38 @@
+/* Reset do CSS para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de Cores e Estilos Globais */
+:root {
+    /* Cores Base */
+    --bg-dark: #2F2325; /* rgb(47, 35, 37) */
+    --rust: #A45A49; /* rgb(164, 90, 73) */
+    --peach: #E68E7B; /* rgb(230, 142, 123) */
+    --white: #FFFFFF; /* rgb(255, 255, 255) */
+    --blue: #97D4D9; /* rgb(151, 212, 217) */
+    --green: #B3DFD3; /* rgb(179, 223, 211) */
+    --yellow: #EFC764; /* rgb(239, 199, 100) */
+    --soft-pink: #FFF2E7; /* rgb(255, 242, 231) */
+
+    /* Backgrounds */
+    --bg-primary: var(--bg-dark);
+    --bg-secondary: rgba(164, 90, 73, 0.3);
+    --bg-tertiary:  rgba(230, 142, 123, 0.3);
+
+
+    /* Borders */
+    --border-color: var(--peach);
+
+    /* Textos */
+    --text-primary: var(--peach);
+    --text-secondary: var(--rust);
+    --text-tertiary: var(--soft-pink);
+
+    /* Outros */
+    --success-color: var(--green);
+    --warning-color: var(--blue);
+    --danger-color: var(--yellow);
+}
