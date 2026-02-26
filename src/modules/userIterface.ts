@@ -23,11 +23,13 @@ export function renderizarTransacoes(transacoes: Transacao[]): void {
    - Inserir no DOM.
     */
     // Ordenar por data (mais recente primeiro) usando getTime() para matemática estrita
-    transacoes.sort(function(a, b) {
+    // Cria um novo array na memória copiando os itens, e então ordena a cópia
+    const transacoesOrdenadas = [...transacoes].sort(function(a, b) {
         return new Date(b.data).getTime() - new Date(a.data).getTime();
     });
 
-    transacoes.forEach(transacao => {
+    // Usa a cópia ordenada para desenhar a tela
+    transacoesOrdenadas.forEach(transacao => {
         const itemTransacao = criarElementoTransacao(transacao);
         listaTransacoes.appendChild(itemTransacao);
     });

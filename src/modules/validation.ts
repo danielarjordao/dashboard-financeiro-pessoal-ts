@@ -54,7 +54,7 @@ export function validarData(data: string): string {
     }
 
     // Validar se é uma data válida
-    const dataObj: Date = new Date(data);
+    const dataObj: Date = new Date(data + 'T00:00:00');
     if (isNaN(dataObj.getTime())) {
         return 'Data inválida.';
     }

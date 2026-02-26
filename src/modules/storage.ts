@@ -1,4 +1,4 @@
-import type { Transacao, TipoTransacao, Categoria, ItemBruto } from "./types.js";
+import type { Transacao, ItemBruto } from "./types.js";
 import { checkTransacoesFormat } from "./utils.js";
 
 // 1) Precisamos definir uma chave fixa para armazenar os dados.

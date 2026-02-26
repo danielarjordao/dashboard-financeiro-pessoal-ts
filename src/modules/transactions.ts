@@ -18,17 +18,17 @@ export function calcularSaldo(transacoes: Transacao[]): number {
 // Calcular total de receitas
 export function calcularReceitas(transacoes: Transacao[]): number {
     // 1) Filtrar apenas receitas
-    let transacoesReceitas: Transacao[] = transacoes.filter(transacao => transacao.tipo === TipoTransacao.Receita);
+    const transacoesReceitas: Transacao[] = transacoes.filter(transacao => transacao.tipo === TipoTransacao.Receita);
     // 2) Somar os valores com reduce(), acc começa em 0
-    let resultado: number = transacoesReceitas.reduce((acc, transacao) => acc + transacao.valor, 0);
+    const resultado: number = transacoesReceitas.reduce((acc, transacao) => acc + transacao.valor, 0);
     return resultado;
 }
 
 // Calcular total de despesas
 export function calcularDespesas(transacoes: Transacao[]): number {
     // 1) Filtrar apenas despesas
-    let transacoesDespesas: Transacao[] = transacoes.filter(transacao => transacao.tipo === TipoTransacao.Despesa);
+    const transacoesDespesas: Transacao[] = transacoes.filter(transacao => transacao.tipo === TipoTransacao.Despesa);
     // 2) Somar os valores com reduce(), acc começa em 0
-   let resultado: number = transacoesDespesas.reduce((acc, transacao) => acc + transacao.valor, 0);
+    const resultado: number = transacoesDespesas.reduce((acc, transacao) => acc + transacao.valor, 0);
     return resultado;
 }
