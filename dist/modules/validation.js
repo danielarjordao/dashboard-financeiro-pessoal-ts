@@ -14,7 +14,7 @@ export function validarDescricao(descricao) {
 export function validarValor(valor) {
     let valorNumerico;
     if (typeof valor === 'string')
-        valorNumerico = parseFloat(valor);
+        valorNumerico = Number(valor);
     else
         valorNumerico = valor;
     if (isNaN(valorNumerico)) {

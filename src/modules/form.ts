@@ -75,10 +75,6 @@ export function initCategorias(): void {
         option.textContent = cat;
         inputCategoria.appendChild(option);
     });
-    // TESTE DE VIDA:
-console.log("Meu formulário é:", form);
-console.log("Meu select de categoria é:", inputCategoria);
-console.log("Meu botão é:", botao);
 }
 
 // Inicializa validações em tempo real e controle do botão
@@ -111,11 +107,12 @@ function atualizarEstadoBotao(): void {
 // Captura dados do formulário e retorna como objeto
 export function capturarDadosFormulario(): ItemBruto {
     return {
+        id: Date.now(), // Gera um ID único baseado no timestamp atual
         data: inputData.value,
         descricao: inputDescricao.value,
         valor: inputValor.value,
         tipo: inputTipo.value,
-        categoria: inputCategoria.options[inputCategoria.selectedIndex]?.text || ''
+        categoria: inputCategoria.value
     };
 }
 

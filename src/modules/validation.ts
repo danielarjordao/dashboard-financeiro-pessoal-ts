@@ -18,7 +18,7 @@ export function validarValor(valor: string | number): string {
     let valorNumerico: number;
 
     if (typeof valor === 'string')
-        valorNumerico = parseFloat(valor);
+        valorNumerico = Number(valor);
     else
         valorNumerico = valor;
 

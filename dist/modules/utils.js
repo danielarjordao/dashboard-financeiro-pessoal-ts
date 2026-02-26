@@ -45,7 +45,7 @@ export function checkTransacaoFormat(item) {
             item.tipo !== undefined && item.categoria !== undefined) {
             // Conversão dos tipos de ID e valor para garantir que sejam numéricos.
             let idNumerico = typeof item.id === 'string' ? parseInt(item.id) : item.id;
-            let valorNumerico = typeof item.valor === 'string' ? parseFloat(item.valor) : item.valor;
+            let valorNumerico = typeof item.valor === 'string' ? Number(item.valor) : item.valor;
             // Se a conversão falhar (resultar em NaN), ignora este item
             if (isNaN(idNumerico) || isNaN(valorNumerico)) {
                 return null;

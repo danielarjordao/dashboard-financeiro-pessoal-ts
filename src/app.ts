@@ -11,6 +11,7 @@ import { renderizarTransacoes, atualizarCards } from './modules/userIterface.js'
 import { init, adicionarTransacao, getTransacoes } from './modules/state.js';
 import { calcularSaldo, calcularReceitas, calcularDespesas } from './modules/transactions.js';
 import type { Transacao, ItemBruto } from './modules/types.js';
+import { checkTransacaoFormat } from './modules/utils.js';
 
 // Inicialização
 init(); // Carregar transações do localStorage
@@ -44,7 +45,14 @@ botao.addEventListener('click', (e) => {
         return;
     }
 
+    const transacaoFormatada: Transacao | null = checkTransacaoFormat(dados);
     // 5) Atualizar estado.
+    if (transacaoFormatada) {
+        adicionarTransacao(transacaoFormatada);
+    } else {
+        console.error('Erro ao formatar transação. Verifique os dados de entrada.');
+        return;
+    }
 
     // 6) Re-renderizar UI.
     const transacoes: Transacao[] = getTransacoes();

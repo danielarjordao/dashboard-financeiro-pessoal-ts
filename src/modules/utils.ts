@@ -45,8 +45,9 @@ export function checkTransacoesFormat(dadosBrutos: ItemBruto[]): Transacao[] {
     return transacoesValidadas;
 }
 
-export function checkTransacaoFormat(item: ItemBruto): Transacao | null {
+export function checkTransacaoFormat(item: ItemBruto): Transacao | null{
     if (typeof item === 'object' && item !== null) {
+
         // Verifica se todas as propriedades realmente existem
          if (item.id !== undefined && item.data !== undefined &&
             item.descricao !== undefined && item.valor !== undefined &&
@@ -54,11 +55,11 @@ export function checkTransacaoFormat(item: ItemBruto): Transacao | null {
 
             // Conversão dos tipos de ID e valor para garantir que sejam numéricos.
             let idNumerico: number = typeof item.id === 'string' ? parseInt(item.id as string) : item.id as number;
-            let valorNumerico: number = typeof item.valor === 'string' ? parseFloat(item.valor as string) : item.valor as number;
+            let valorNumerico: number = typeof item.valor === 'string' ? Number(item.valor as string) : item.valor as number;
 
             // Se a conversão falhar (resultar em NaN), ignora este item
             if (isNaN(idNumerico) || isNaN(valorNumerico)) {
-                return null;
+                    return null;
             }
 
             // Montagem do objeto final estritamente tipado

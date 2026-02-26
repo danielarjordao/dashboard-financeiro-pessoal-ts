@@ -80,11 +80,12 @@ function atualizarEstadoBotao() {
 // Captura dados do formulário e retorna como objeto
 export function capturarDadosFormulario() {
     return {
+        id: Date.now(), // Gera um ID único baseado no timestamp atual
         data: inputData.value,
         descricao: inputDescricao.value,
         valor: inputValor.value,
         tipo: inputTipo.value,
-        categoria: inputCategoria.options[inputCategoria.selectedIndex]?.text || ''
+        categoria: inputCategoria.value
     };
 }
 // Retornar referência do botão para o app.js

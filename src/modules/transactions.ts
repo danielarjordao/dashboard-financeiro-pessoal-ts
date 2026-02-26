@@ -1,6 +1,5 @@
 import { type Transacao, TipoTransacao} from './types.js';
 
-
 /*
 1) O saldo começa em 0.
 2) Para cada transação:
