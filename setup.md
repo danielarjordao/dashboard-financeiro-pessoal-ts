@@ -60,16 +60,32 @@ Dentro do `tsconfig.json`, certifique-se de configurar e descomentar as seguinte
     "rootDir": "./src",
     "outDir": "./dist",
 
-    /* Ambiente do Navegador */
-    "lib": ["esnext", "dom"],
+    /* Módulos e Alvo (Garante o uso de import/export nativos modernos) */
+    "module": "nodenext",
+    "target": "esnext",
 
-    /* Limpeza de Saída (Opcional - para gerar apenas os arquivos .js essenciais) */
+    /* Ambiente do Navegador e Tipos Globais */
+    "lib": ["esnext", "dom"],
+    "types": [],
+
+    /* Limpeza de Saída */
     "sourceMap": false,
     "declaration": false,
-    "declarationMap": false
+    "declarationMap": false,
+
+    /* Regras de Tipagem Estritas (Modo Seguro) */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    /* Otimizações de Módulos e Compilação */
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
   }
 }
-
 ```
 
 ## 6. Regras Práticas de Integração
@@ -102,7 +118,6 @@ npx tsc
 Crie um arquivo `.gitignore` na raiz do projeto e adicione a pasta `dist` e a pasta `node_modules` para evitar que arquivos gerados e dependências sejam enviados para o repositório:
 
 ```bash
-dist/
 node_modules/
 ```
 
